@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="/mainscript.js"></script>
+    <script type="module" src="../scripts/framework.js"></script>
+    <script src="/scripts/header.js"></script>
+    <!-- <script type="importmap">
+    {
+        "imports": {
+        "imagesloaded": "/node_modules/imagesloaded/imagesloaded.js"
+        }
+    }
+    </script> -->
+    <script defer src="/scripts/about.js" type="module" ></script>
+    <script defer src="/scripts/footer.js"></script>
+    <script src="https://unpkg.com/lenis@1.3.20/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+    <title>Our Team &mdash; Sagitta</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <section>
+            <h1 class="section-title short-width hasTopPadding">Explore how we work together</h1>
+            <div class="ui-entrance-intro">
+                <div class="ui-entrance-intro__label">
+                    <span>Our Professionals</span>
+                </div>
+            </div>
+            <div class="ui-person-panel hidden" data-lenis-prevent>
+                <div class="ui-person-panel__header">
+                    <button class="close-btn"><div class="line line-1"></div><div class="line line-2"></div></button>
+                </div>
+                <div class="ui-person-panel__content">
+                    <div class="ui-person-panel__item ui-person-panel__content-header">
+                        <div class="ui-person-panel__names">
+                            <h1 class="member-name"></h1>
+                            <span class="member-role"></span>
+                        </div>
+                        <div class="ui-person-panel__small-contact">
+                            <button class="btn btn-outline" id="toPortfolio">Portfolio &rightarrow;</button>
+                        </div>
+                    </div> 
+                    <div class="ui-person-panel__item ui-person-panel__biography">
+                        <div>
+                            <div class="ui-person-panel__avatar">
+                                <img src="" class="member-avatar" />
+                            </div>
+                            <div class="ui-person-panel__quote">
+                                <p class="ui-person-panel__quotetext"></p>
+                                <span class="ui-person-panel__citation"></span>
+                            </div>
+                        </div>
+                        <div class="ui-person-panel__item ui-person-panel__desc">
+                            <details class="ui-person-panel__dropdown">
+                                <summary>Biography</summary>
+                                
+                            </details>
+                            <details class="ui-person-panel__dropdown">
+                                <summary>About</summary>
+                                <p></p>
+                            </details>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <h1 class="section-title center bold uppercase">The leadership</h1>
+        <section class="rm-padding">
+            <div class="expressive-grid people-grid">
+                <div class="ui-person-card flexible" data-person="">
+                    <div class="people-avatar">
+                        <img src="">
+                    </div>
+                    <div class="people-info">
+                        <div class="people-name">
+                            <h1></h1>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+</html>
