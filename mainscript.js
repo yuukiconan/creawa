@@ -1,6 +1,6 @@
 const icon = document.createElement('link');
 icon.rel = 'website icon';
-icon.href = '/assets/images/sagitta_thunder_logo.webp';
+icon.href = '/assets/images/creawa.webp';
 document.head.appendChild(icon);
 
 const iconCdn = document.createElement('link');

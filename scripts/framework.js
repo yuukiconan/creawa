@@ -1,6 +1,6 @@
 /// <reference lib="dom" />
 
-export default class LyraUI {
+export default class CreawaUI {
     constructor(version, author) {
         this.version = version;
         this.author = author;

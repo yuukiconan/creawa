@@ -1,7 +1,7 @@
-import LyraUI from "./framework.js";
+import CreawaUI from "./framework.js";
 
-const lyra = new LyraUI("1.1", "Lyra & Co.");
-lyra.animateOnScroll('.people-grid', {
+const Creawa = new CreawaUI("1.1", "Creawa");
+Creawa.animateOnScroll('.people-grid', {
     target: '.ui-person-card',
     stagger: 0.2,
     threshold: 0.5,
@@ -34,7 +34,7 @@ lyra.animateOnScroll('.people-grid', {
 /* Fetch members JSON to HTML */
 async function fetchMembers(targetId) {
     try {
-        const response = await fetch('/scripts/json/members_lyraco.json');
+        const response = await fetch('/scripts/json/members_Creawaco.json');
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}`);
         }
