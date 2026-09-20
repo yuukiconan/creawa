@@ -1,0 +1,27 @@
+[
+    {
+        "id": "najwa",
+        "name": "Najwa Zakiyya A'la",
+        "role": "Penemu dan CEO Creawa",
+        "avatar_url": "/assets/images/avatar/najwa.webp",
+        "quotes": "",
+        "citation": ""
+    },
+    {
+        "id": "naufa",
+        "name": "Naufa Shofya",
+        "role": "Ketua Eksekutif Creawa",
+        "avatar_url": "/assets/images/avatar/naufa.webp",
+        "quotes": "",
+        "citation": ""
+    },
+    {
+        "id": "shalolitta",
+        "name": "Shalolitta Azahra S.",
+        "role": "Ketua Direksi Bidang Seni dan Kreatif",
+        "avatar_url": "/assets/images/avatar/shalolitta.webp",
+        "quotes": "",
+        "citation": ""
+    }
+
+]

@@ -34,7 +34,7 @@ Creawa.animateOnScroll('.people-grid', {
 /* Fetch members JSON to HTML */
 async function fetchMembers(targetId) {
     try {
-        const response = await fetch('/scripts/json/members_Creawaco.json');
+        const response = await fetch('/scripts/json/members.json');
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}`);
         }
