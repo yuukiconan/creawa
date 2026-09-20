@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
     <script src="/mainscript.js"></script>
     <script type="module" src="../scripts/framework.js"></script>
+    <script src="/scripts/transition.js" defer></script>
     <script src="/scripts/header.js"></script>
     <!-- <script type="importmap">
     {
@@ -33,7 +34,10 @@
 
 <body>
     <header></header>
-    <main class="ui-about">
+    <div class="ui-curtain" aria-hidden="true">
+        <div class="ui-curtain__label">Creawa</div>
+    </div>
+    <main class="ui-about" data-page-content>
         <!-- About / Introduction Section -->
         <section class="ui-about-intro">
             <div class="ui-about-header">

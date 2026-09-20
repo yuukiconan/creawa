@@ -1,13 +1,8 @@
 @view-transition {
     navigation: auto;
 }
-::view-transition-old(root) {
-    animation: 800ms cubic-bezier(0.23, 1, 0.320, 1) both pageTransitionOld;
-}
-
-::view-transition-new(root) {
-    animation: 800ms cubic-bezier(0.075, 0.82, 0.165, 1) both pageTransitionNew;
-    animation-delay: 1.8s;
+::view-transition-old(root), ::view-transition-new(root), ::view-transition-group(root), ::view-transition-image-pair(root) {
+    animation: none !important;
 }
 
 @font-face {
@@ -47,15 +42,15 @@
     }
 
     :root {
-        --color-bg:  #1B1E16;
+        --color-bg:  #111111;
         --color-text: #E4E4DE;
         --color-text-white: #F2FCF1;
         --color-text-gray: rgba(199, 199, 199, 0.8);
         --color-backdrop: rgb(31 27 24 / 72%);
-        --color-surface: #2D3324;
+        --color-surface: #1c1c1c;
         --color-surface-secondary: #392D2D;
-        --color-primary: #708238;
-        --color-border: #424e3c;
+        --color-primary: #f7f7f6;
+        --color-border: #292929;
         --color-border-gray: rgba(46, 46, 46, 0.5);
     
         --sans-serif-heading: "Manrope", sans-serif;
@@ -127,7 +122,7 @@
         --color-text-secondary: #5F5358;
         --color-backdrop: rgb(248 245 242 / 80%);
         --color-surface: #C4C5BA;
-        --color-surface-secondary: #F6E1E5;
+        --color-surface-secondary: #eef6e1;
         --color-border: rgb(198, 208, 189);
         --color-border-gray: rgba(150, 150, 150, 0.31);
         --color-text-gray: #85807A;
@@ -405,7 +400,7 @@
     }
     section {
         position: relative;
-        padding: 1em 50px;
+        padding: 1em 36px;
     }
     a {
         color: var(--color-text-gray);
@@ -479,6 +474,27 @@
 }
 
 @layer components {
+    /* MPA ViewTransition */
+    .ui-curtain {
+        position: fixed;
+        z-index: 999;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        transform: translateY(0);
+        background: var(--color-surface-secondary);
+        color: var(--color-text);
+        font-family: var(--sans-serif-heading);
+    }
+
+
+    .ui-curtain .ui-curtain__label {
+        text-transform: lowercase;
+        font-size: var(--text-4xl);
+        font-weight: 300;
+        overflow: hidden;
+    }
+
     /* Controls */
     .close-btn {
         position: relative;
@@ -621,8 +637,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 4px 30px;
-        border-bottom: 1px solid var(--color-border);
+        padding: 8px 30px;
         flex-basis: 100%;
     }
 
