@@ -32,7 +32,7 @@ function openCurtain() {
         yPercent: -100,
         opacity: 0,
         duration: 1,
-        stagger: 0.03,
+        stagger: 0.05,
         ease: "power3.inOut"
     })
 
@@ -40,7 +40,7 @@ function openCurtain() {
         yPercent: -100,
         duration: 1,
         ease: 'power4.inOut'
-    }, 0.15)
+    }, 1)
 
     return tl;
 }
@@ -53,19 +53,21 @@ function closeCurtain() {
         opacity: 0
     })
 
+
+    tl.to(curtain, {
+        yPercent: 0,
+        duration: 1,
+        ease: 'power4.inOut'
+    }, 0.5)
+
     tl.to(split.chars, {
         yPercent: 0,
         opacity: 1,
         duration: 1,
-        stagger: 0.1,
+        stagger: 0.05,
         ease: "power3.inOut"
     })
     
-    tl.to(curtain, {
-        yPercent: 0,
-        duration: 1.25,
-        ease: 'power3.inOut'
-    }, 0.1)
 
     return tl;
 }
