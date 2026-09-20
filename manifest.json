@@ -1,0 +1,16 @@
+{
+  "short_name": "Creawa",
+  "name": "Creawa & Co.",
+  "icons": [
+    {
+      "src": "/assets/images/avatar/creawa.webp",
+      "type": "image/webp",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#202020",
+  "theme_color": "#fafafa",
+  "display": "standalone",
+  "orientation": "portrait"
+}
