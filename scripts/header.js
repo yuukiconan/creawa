@@ -20,8 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (Math.abs(delta) < threshold) return;
             
-            header.classList.toggle('hide', delta > 0);
-            
             lastScrollY = currentScrollY;
         }); 
 
@@ -34,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const lenis = window.lenis;
         
         function menuFadeIn() {
-            hamburgerMenu.style.animation = `inUpDynamic 1.2s cubic-bezier(0.8, 0, 0.2, 1)`;
+            hamburgerMenu.style.animation = `inUpDynamic 1s cubic-bezier(0.8, 0, 0.2, 1)`;
         }
         
         function openMenu() {
@@ -60,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function menuFadeOut() {
-            hamburgerMenu.style.animation = 'outUpDynamic 1.2s cubic-bezier(1, 0, 0.2, 1)';
+            hamburgerMenu.style.animation = 'outUpDynamic 1s cubic-bezier(1, 0, 0.2, 1)';
 
             hamburgerMenu.addEventListener('animationend', () => {
                 if (hamburgerMenu.style.animation.includes('outUpDynamic')) {

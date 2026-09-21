@@ -85,9 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         personPanel.classList.remove('hidden');
     }
     
-    let animation = 'fadeOutLeft';
-    window.addEventListener('resize', () => window.innerWidth > 768 ? animation = 'fadeOutLeft' : animation = 'fadeOut' )
-    window.innerWidth > 768 ? animation = 'fadeOutLeft' : animation = 'fadeOut'
+    let animation = 'fadeOut';
     
     function closePanel() {
         // reset the previous animation

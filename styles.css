@@ -121,7 +121,7 @@
         --color-text: #1c1c1c;
         --color-text-secondary: #5F5358;
         --color-backdrop: rgb(248 245 242 / 80%);
-        --color-surface: #C4C5BA;
+        --color-surface: #F4F4F4;
         --color-surface-secondary: #eef6e1;
         --color-border: rgb(198, 208, 189);
         --color-border-gray: rgba(150, 150, 150, 0.31);
@@ -159,20 +159,20 @@
 
     @keyframes inUpDynamic {
         0% {
-            transform: scaleY(0%);
+            transform: translateY(-100%);
         }
 
         100% {
-            transform: scaleY(100%);
+            transform: translateY(0%);
         }
     }
     @keyframes outUpDynamic {
         0% {
-            transform: scaleY(100%);
+            transform: translateY(0%);
         }
 
         100% {
-            transform: scaleY(0);
+            transform: translateY(-100%);
             
         }
     }
@@ -651,14 +651,12 @@
     }
 
     .header-left {
-        max-width: 200px;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
         gap: 0;
-        z-index: 11;
-        transition: opacity .25s cubic-bezier(0.4, 0, 0.2, 1), transform .5s cubic-bezier(0.4, 0, 0.2, 1), visibility .5s cubic-bezier(0.4, 0, 0.2, 1);
+        visibility: visible;
     }
     .header-left span {
         margin: 4px 16px 0;
@@ -796,24 +794,23 @@
     }
 
     .hamburger-menu-content {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        grid-auto-rows: auto;
         width: 100%;
         height: 100%;
-        padding: 10px 10px 10px 10px;
-        gap: 6px;
+        padding: 32px 10px 10px 10px;
+        gap: 0px;
     }
 
-    .hamburger-menu-content a {
+    .hamburger-menu-content a:has(.menuButton.hasBg) {
         width: 100%;
+        background: var(--color-surface-secondary);
     }
     .menuButton {
         display: block;
         width: 100%;
         overflow: hidden;
-        border-bottom: 1px solid var(--color-border);
     }
     .menuButton:hover span {
         font-family: var(--serif);
@@ -823,7 +820,6 @@
 
     .menuButton div {
         display: flex;
-        justify-content: space-between;
         align-items: center;
         gap: 16px;
     }
@@ -832,6 +828,7 @@
         display: flex;
         position: relative;
         text-transform: uppercase;
+        white-space: nowrap;
         text-align: left;
         font-weight: 500;
         font-family: var(--sans-serif-heading);
@@ -864,15 +861,14 @@
     
     .stagger-element {
         overflow: hidden;
-        opacity: 0;
-        transform: translateY(60px);
-        transition: color .5s, opacity .3s cubic-bezier(0.785, 0.135, 0.15, 0.86), transform .5s cubic-bezier(0.785, 0.135, 0.15, 0.86)
+        transform: translateY(100px);
+        transition: color .5s, opacity .3s cubic-bezier(0.785, 0.135, 0.15, 0.86), transform .5s cubic-bezier(0.785, 0, 0.15, 1)
     }
     
     .stagger-element.visible {
         opacity: 1;
         transform: translateY(0);
-        transition: color .5s, opacity .4s cubic-bezier(0.22, 0, 0.4, 1), transform .5s cubic-bezier(0.165, 0.84, 0.44, 1)
+        transition: color .5s, opacity .4s cubic-bezier(0.22, 0, 0.4, 1), transform .5s cubic-bezier(0.065, 0.9, 0.44, 1)
     }
 
     .menuButton:has(.stagger-element:not(.visible)) {
@@ -892,6 +888,11 @@
         justify-content: space-between;
         gap: clamp(1rem, 5vw, 10rem);
         padding: 10px 20px;
+        opacity: 0;
+    }
+    
+    .hamburger-menu-footer .stagger-element.visible {
+        opacity: 1;
     }
 
     .theme-toggle {
@@ -2249,11 +2250,6 @@
         visibility: hidden;
     }
 
-    header:has(.hamburger-menu:not(.hidden)) nav {
-        opacity: 0;
-        visibility: hidden;
-    }
-
     /* Contents */
     section.hasBg {
         background-color: var(--color-surface);
@@ -2410,7 +2406,6 @@ html.noscroll:has(.ui-person-panel:not(.hidden)) {
 }
 
 .ui-person-panel__content {
-    background-color: var(--color-surface);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -2419,13 +2414,6 @@ html.noscroll:has(.ui-person-panel:not(.hidden)) {
     gap: 20px;
     border-radius: 36px 0 0 0;
     transition: transform .7s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.ui-person-panel:has(.ui-person-panel__header .close-btn:hover) .ui-person-panel__content {
-    transform: translateX(20px);
-}
-.ui-person-panel:has(.ui-person-panel__header .close-btn:active) .ui-person-panel__content {
-    transform: translateX(100px);
 }
 
 .ui-person-panel__item {
@@ -2508,11 +2496,7 @@ html.noscroll:has(.ui-person-panel:not(.hidden)) {
 }
 
 .ui-person-panel:not(.hidden) .ui-person-panel__content {
-    animation: fadeInLeft .9s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.ui-person-panel:not(.hidden) .ui-person-panel__content :is(.ui-person-panel__biography) {
-    animation: fadeIn 3s cubic-bezier(0.19, 1, 0.22, 1);
+    animation: fadeIn .9s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 /* Experimental */
@@ -2634,31 +2618,17 @@ details[open] > summary::after {
 
 @media (max-width: 768px) {
     @keyframes inUpDynamic {
-        0% {
-            transform: translateX(100%);
-        }
-
-        100% {
-            transform: translateX(0%);
-        }
+        from { opacity: 0 }
     }
     @keyframes outUpDynamic {
-        0% {
-            transform: translateX(0%);
-        }
-
-        100% {
-            transform: translateX(100%);
-            
-        }
+        to { opacity: 0; }
     }
     main {
-        padding-block-start: 70px;
+        padding-block-start: 23px;
     }
     
     .header-content {
-        padding: 26px 30px 14px;
-        border-bottom: none ;
+        padding: 18px 30px;
     }
     .ui-hero-section .hero-content {
         justify-content: flex-end;
@@ -2709,10 +2679,11 @@ details[open] > summary::after {
         padding-inline: 30px;
     }
     .hamburger-menu {
-        padding: 30px 12px;
+        padding: 60px 0px 30px;
     }
     .hamburger-menu-content {
-        justify-content: center;
+        justify-content: flex-start;
+        padding: 30px 0;
         gap: 8px;
     }
     
@@ -2720,14 +2691,10 @@ details[open] > summary::after {
         border-bottom: none;
     }
     .menuButton div {
-        justify-content: center;
-        padding-inline: 6px;
+        justify-content: flex-start;
     }
     
-    .menuButton .num { font-size: 18px; display: none; }
-    .menuButton.isHidden {
-        display: flex;
-    }
+    .menuButton .num { font-size: 18px; }
     
     .ui-article-section {
         flex-direction: column;
@@ -2795,12 +2762,10 @@ details[open] > summary::after {
         flex-direction: column;
         justify-content: flex-start;
         padding: 10px 0 0;
-        background-color: var(--color-surface);
-        backdrop-filter: unset;
     }
     .ui-person-panel__header {
         flex: 1 1 auto;
-        padding: 24px 36px 16px;
+        padding: 14px 36px 16px;
     }
     .ui-person-panel__header .close-btn .line {
         background-color: var(--color-text);
@@ -2815,10 +2780,6 @@ details[open] > summary::after {
     }
     .ui-person-panel:not(.hidden) .ui-person-panel__content {
         animation: fadeIn .5s cubic-bezier(0.19, 1, 0.22, 1);
-    }
-    /* Prevent unnecessary translateX when clicking the X button in mobile */
-    .ui-person-panel:has(.ui-person-panel__header .close-btn:active) .ui-person-panel__content {
-        transform: translateX(20px);
     }
     .ui-person-panel__content::-webkit-scrollbar {
         display: none;
