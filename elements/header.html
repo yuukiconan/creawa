@@ -1,11 +1,17 @@
 <div class="header-content">
-    <a href="/">
+    <a href="/" style="width: fit-content">
         <div class="header-left">
             <img src="/assets/images/avatar/creawa.webp" alt="creawa logo" class="logo" />
-           <h1>Creawa</h1>
+            <h1>Creawa</h1>
         </div>
     </a>
     <div class="header-center">
+        <button class="nav-button hamburger" aria-label="Menu" aria-expanded="false" aria-controls="hamburger-menu">
+            <div class="lines">
+                <div class="line line-1"></div><div class="line line-2"></div>
+            </div>
+            <span class="hamburger-text" aria-label="Menu">Menu</span>
+        </button>
     </div>
     <div class="header-right">
         <nav class="navigation-links">
@@ -14,16 +20,9 @@
             <a href="/magazine.html">Blog</a>
             <a href="/team.html">Tim kami</a>
         </nav>
-        <div class="action-buttons hidden">
-            <button id="theme-toggle-desktop"><i class="ri-moon-line"></i></button>
-            <button data-dialog-open="chat-menu"><i class="ri-customer-service-2-line"></i></button>
+        <div class="action-buttons">
+            <button data-dialog-open="chat-menu">Contact</button>
         </div>
-        <button class="nav-button hamburger" aria-label="Menu" aria-expanded="false" aria-controls="hamburger-menu">
-            <div class="lines">
-                <div class="line line-1"></div><div class="line line-2"></div>
-            </div>
-            <span class="hamburger-text" aria-label="Menu">Menu</span>
-        </button>
     </div>
 </div>
 <div class="hamburger-menu hidden">
@@ -56,18 +55,18 @@
                 </div>
             </button>
         </a>
+        <div class="hamburger-menu-footer">
+            <div class="stagger-element">
+                <div class="hamburger-menu-actions actions-left">
+                    <button class="theme-toggle">Theme: Light</button>
+                </div>
+                <div class="hamburger-menu-actions">
+                    <span id="menu-clock"></span>
+                    <a href="http://">Privacy Policy</a>
+                    <a href="http://">License</a>
+                </div>
+            </div>
     </div>
-    <div class="hamburger-menu-footer">
-        <div class="stagger-element">
-            <div class="hamburger-menu-actions actions-left">
-                <button class="theme-toggle hidden">Theme: Dark</button>
-            </div>
-            <div class="hamburger-menu-actions">
-                <span id="menu-clock"></span>
-                <a href="http://">Privacy Policy</a>
-                <a href="http://">License</a>
-            </div>
-        </div>
     </div>
 </div> 
 <dialog class="on-the-side chat-menu" data-lenis-prevent>

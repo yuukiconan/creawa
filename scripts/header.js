@@ -110,16 +110,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const themeToggleDesktop = document.getElementById('theme-toggle-desktop');
         const theme = localStorage.getItem('theme') === 'true';
         
-        function updateTheme(isLight) {
-            root.classList.toggle('light-mode', isLight);
+        function updateTheme(isChanged) {
+            root.classList.toggle('dark-mode', isChanged);
 
             if (themeToggle) {
-                themeToggle.textContent = isLight ? "Theme: Light" : "Theme: Dark";
+                themeToggle.textContent = isChanged ? "Theme: Dark" : "Theme: Light";
             }
 
             const icon = themeToggleDesktop?.querySelector('i');
             if (icon) {
-                icon.className = isLight ? 'ri-sun-line' : 'ri-moon-line';
+                icon.className = isChanged ? 'ri-moon-line' : 'ri-sun-line';
             }
         }
         
@@ -128,10 +128,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!selector) return;
 
             selector.addEventListener('click', () => {
-                const isLight = !root.classList.contains('light-mode');
+                const isDark = !root.classList.contains('dark-mode');
                 
-                localStorage.setItem('theme', isLight);
-                updateTheme(isLight)
+                localStorage.setItem('theme', isDark);
+                updateTheme(isDark)
             });
         }
 
