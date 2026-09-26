@@ -5,12 +5,22 @@ function animateContent() {
     const targets = content.querySelectorAll('[data-animate]');
     if (!targets.length) return;
     
-    return gsap.from(targets, {
-        y: 24,
-        duration: 0.7,
-        stagger: 0.08,
-        ease: 'power3.out',
-        clearProps: 'transform'
+    return gsap.fromTo(targets, {
+        opacity: 0, y: 30
+    },
+    {
+        opacity: 1,
+        y: 0,
+        duration: 1.4,
+        stagger: 0.2,
+        ease: 'power4.out',
+        scrollTrigger: {
+            start: 'top center',
+            end: 'center top',
+            scrub: false,
+            markers: false
+        }
+        
     })
 }
 
@@ -74,16 +84,26 @@ function closeCurtain() {
 
 let leaving = false;
 
+function getAnimatedContent() {
+    const content = document.querySelector('[data-page-content]');
+    return content ? content.querySelectorAll('[data-animate] > *') : [];
+}
+
 async function enter() {
     leaving = false;
     await ready;
-    gsap.killTweensOf([curtain, split.chars]);
+    
+    const animatedContent = getAnimatedContent();
+    gsap.killTweensOf([curtain, split.chars, animatedContent]);
 
     gsap.set(curtain, { yPercent: 0 });
     gsap.set(split.chars, { yPercent: 0, opacity: 1 });
+    if (animateContent.length) {
+        gsap.set(animatedContent, { opacity: 0, yPercent: 30 });
+    }
 
-    openCurtain();
-    animateContent(0.6); 
+    await openCurtain();
+    animateContent(); 
 }
 
 async function leave(href) {

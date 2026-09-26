@@ -1,12 +1,6 @@
 import CreawaUI from "./framework.js";
 
 const Creawa = new CreawaUI("1.1", "Creawa");
-Creawa.animateOnScroll('.people-grid', {
-    target: '.ui-person-card',
-    stagger: 0.2,
-    threshold: 0.5,
-    rootMargin: '0px 0px -150px 0px'
-})
 
 // const container = document.querySelector('.horizontal-gallery-wrapper');
 // const track = document.querySelector('.horizontal-track')

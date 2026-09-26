@@ -276,8 +276,11 @@
     * {
         appearance: none;
         box-sizing: border-box;
-        color-scheme: dark;
         -webkit-tap-highlight-color: #38312C89;
+    }
+    [data-animate] {
+        opacity: 0;
+        transform: translateY(50px);
     }
     :root.light-mode * {
         -webkit-tap-highlight-color: rgba(213, 206, 198, 0.3);
@@ -761,11 +764,6 @@
         background-color: var(--color-bg);
         z-index: 9;
         padding: 36px 2.5em 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        flex-basis: 100%;
         transform-origin: top;
         
     }
@@ -784,29 +782,21 @@
         width: 100%;
         background: var(--color-surface-secondary);
     }
+    
     .menuButton {
-        display: block;
-        width: 100%;
         overflow: hidden;
-    }
-    .menuButton:hover span {
-        font-family: var(--serif);
-        font-style: italic;
-        font-weight: 500;
     }
 
     .menuButton div {
         display: flex;
+        justify-content: flex-start;
         align-items: center;
         gap: 16px;
     }
     
     .menuButton span {
-        display: flex;
-        position: relative;
-        text-transform: uppercase;
-        white-space: nowrap;
         text-align: left;
+        text-transform: uppercase;
         font-weight: 500;
         font-family: var(--sans-serif-heading);
         color: var(--color-text);
@@ -837,6 +827,7 @@
     }
     
     .stagger-element {
+        opacity: 0;
         overflow: hidden;
         transform: translateY(100px);
         transition: color .5s, opacity .3s cubic-bezier(0.785, 0.135, 0.15, 0.86), transform .5s cubic-bezier(0.785, 0, 0.15, 1)
@@ -848,19 +839,12 @@
         transition: color .5s, opacity .4s cubic-bezier(0.22, 0, 0.4, 1), transform .5s cubic-bezier(0.065, 0.9, 0.44, 1)
     }
 
-    .menuButton:has(.stagger-element:not(.visible)) {
-        border-bottom-color: transparent;
-        transition: border-bottom-color .2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
     .hamburger-menu-footer {
         overflow: hidden;
-        width: 100%;
         padding: 16px 20px;
     }
     
     .hamburger-menu-footer .stagger-element {
-        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -1870,26 +1854,26 @@
     
     .ui-person-card .people-info {
         display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        order: 0;
+        justify-content: center;
         padding: 14px 0px 26px;
+        order: -1;
     }
     
     .people-info .people-name {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: flex-start;
+        align-items: center;
         gap: 10px;
     }
     
     .ui-person-card .people-info h1 {
-        font-size: var(--text-xl);
+        font-size: var(--text-lg);
+        text-transform: uppercase;
         font-family: var(--sans-serif-heading);
-        font-weight: 500;
+        font-weight: 400;
         max-width: 100%;
-        order: 1;
+        text-align: center;
     }
     
     .ui-person-card .people-info span {
@@ -1898,6 +1882,7 @@
         text-transform: uppercase;
         font-family: var(--monospace);
         color: var(--color-text-gray);
+        text-align: center;
     }
     
     .ui-person-card .people-info p {
@@ -2355,8 +2340,7 @@
 .ui-person-panel {
     position: fixed;
     inset: 0;
-    background-color: var(--color-backdrop);
-    backdrop-filter: blur(20px);
+    background-color: var(--color-surface);
     z-index: 11;
     display: flex;
     flex-direction: column;
@@ -2395,7 +2379,7 @@ html.noscroll:has(.ui-person-panel:not(.hidden)) {
 .ui-person-panel__content-header {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 20px;
 }
 
@@ -2417,7 +2401,8 @@ html.noscroll:has(.ui-person-panel:not(.hidden)) {
 .ui-person-panel__names {
     display:flex;
     flex-direction: column;
-    gap: 10px
+    align-items: center;
+    gap: 12px
 }
 
 .ui-person-panel__biography {
@@ -2426,12 +2411,18 @@ html.noscroll:has(.ui-person-panel:not(.hidden)) {
 }
 
 .ui-person-panel__names .member-name {
-    font-weight: 500;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
     font-size: 3.5vw;
 }
 .ui-person-panel__names .member-role {
-    font-weight: 300;
+    font-weight: 400;
+    text-align: center;
+    font-family: var(--monospace);
+    color: var(--color-text-gray);
     text-transform: uppercase;
+    font-size: 0.75rem;
 }
 
 .ui-person-panel__quote {
@@ -2499,18 +2490,6 @@ details[open]::details-content {
 }
 details[open] > summary::after {
     transform: rotate(45deg);
-}
-.ui-person-card {
-    opacity: 0;
-    transform: translateY(60px);
-    pointer-events: none;
-    transition: opacity 1.5s cubic-bezier(0.075, 0.82, 0.165, 1), transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.ui-person-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
 }
 
 .ui-warning, .ui-error {
@@ -2586,12 +2565,7 @@ details[open] > summary::after {
 }
 
 @media (max-width: 768px) {
-    @keyframes inUpDynamic {
-        from { opacity: 0 }
-    }
-    @keyframes outUpDynamic {
-        to { opacity: 0; }
-    }
+    
     main {
         padding-block-start: 20px;
     }
@@ -2637,14 +2611,11 @@ details[open] > summary::after {
         padding: 60px 0px 30px;
     }
     .hamburger-menu-content {
-        justify-content: flex-start;
-        padding: 30px 0;
+        grid-template-columns: repeat(1, 1fr);
+        padding: 20px 0;
         gap: 8px;
     }
     
-    .menuButton {
-        border-bottom: none;
-    }
     .menuButton div {
         justify-content: flex-start;
         padding: 8px 12px;
@@ -2736,21 +2707,16 @@ details[open] > summary::after {
     }
     .ui-person-panel__content-header {
         flex-direction: column;
-        align-items: flex-start;
     }
     .ui-person-panel__biography {
         flex-direction: column;
-        align-items: flex-start;
         padding: 0px 30px ;
     }
     .ui-person-panel__avatar, .ui-person-panel__avatar img {
         aspect-ratio: 1 / 1;
     }
-    .ui-person-panel__names {
-        order: 1;
-    }
     .ui-person-panel__names .member-name {
-        font-size: var(--text-3xl);
+        font-size: var(--text-lg);
     }
     
     .float-container button span {
