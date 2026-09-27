@@ -16,6 +16,7 @@
     <script src="/scripts/transition.js" defer></script>
     <script src="./scripts/header.js"></script>
     <script defer src="/scripts/footer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/CustomEase.min.js" integrity="sha512-hOlMIjWmnBr7Fa6D6jD0RS7jcVFSTKyonOv4Yjncnw1j5ilx0yPTIfv1WTXYNb1xNYFTgEOzLG0g+u9w01AijQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/lenis@1.3.20/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -25,129 +26,52 @@
     </script>
     <title>Creawa — Where Vision Meets Layout</title>
 </head>
-<body>
+<body class="index">
     <header></header>
     <div class="ui-curtain" aria-hidden="true">
         <div class="ui-curtain__label">Creawa</div>
     </div>
     <main data-page-content>
-        <section class="hero-editorial-intro">
+        <div class="ui-hero-section">
+            <div class="ui-hero-section__top">
+                <div class="ui-short-brief">
+                    <h1>Jelajahi showcase proyek kreatif sekolah di sini.</h1>
+                    <button class="btn btn-outline btn-inverted"><span>Lihat kreasi</span><i class="ri-arrow-right-up-line"></i></button>
+                </div>
+                <div class="ui-hero-section__image-overlay">
+                    <img src="/assets/images/avatar/najwa.webp" class="small" alt="hero showcase">
+                    <img src="/assets/images/avatar/shalolitta1.webp" alt="hero showcase">
+                </div>
+            </div>
+            <div class="ui-hero-section__center">
+                <h1 class="ui-hero-section__heading">creawa</h1>
+            </div>
+            <div class="ui-hero-section__bottom">
+                <div>
+                    <span>&copy; 2026 Creawa</span>
+                </div>
+                <div>
+                    <span>Versi 0.10</span>
+                </div>
+                <div>
+                    <span>Designed by: Najwa Zakiyya A'la</span>
+                </div>
+            </div>
+        </div>
+        <div class="ui-entrance-intro">
+            <div class="ui-pillar-images">
+                <div class="ui-pillar-images__item">
+                    <img src="/assets/images/showcases/uiux.webp" />
+                </div>
+                <div class="ui-pillar-images__item grid-2">
+                    <img src="/assets/images/showcases/webdev.webp" />
+                </div>
+                <div class="ui-pillar-images__item grid-3">
+                    <img src="/assets/images/showcases/fashion.webp" />
+                </div>
+            </div>                
 
-            <h1 class="hero-editorial-heading">
-                <span class="heading-row">Vision,</span>
-                <span class="heading-row heading-row--mixed">
-                    <span class="heading-word serif italic capitalize">Style</span>
-                    <span class="heading-inline">and</span>
-                    <span class="heading-word">Layout</span>
-                </span>
-            </h1>
-        
-            <figure class="hero-editorial-media">
-                <img src="/assets/images/showcases/fashion.webp" alt="Street portrait, woman smoking a cigarette in golden light">
-            </figure>
-        
-            <div class="marquee">
-                <div class="marquee-track">
-                    <span class="marquee-text">Interior Design</span>
-                    <span class="marquee-text">Fashion and Muse</span>
-                    <span class="marquee-text">Web Design</span>
-                    <span class="marquee-text">Web Development</span>
-                    <span class="marquee-text">UI/UX Designer</span>
-                </div>
-            </div>
-            <div class="marquee reversed">
-                <div class="marquee-track">
-                    <span class="marquee-text">Authentic</span>
-                    <span class="marquee-text">Durability</span>
-                    <span class="marquee-text">Creativity</span>
-                    <span class="marquee-text">Comfortable</span>
-                    <span class="marquee-text">Usable</span>
-                </div>
-            </div>
-            
-            <div class="hero-editorial-body">
-                <aside class="hero-editorial-meta">
-                    <time datetime="2023-08-04">4 August 2023</time>
-                </aside>
-        
-                <div class="hero-editorial-copy">
-                    <p>
-                        Creawa &amp; Co. was founded on this day by Keyza Medina Richi Sherlya Fanda, who, ironically,
-                        would become the true originator of Creawa. What began as a personal space to showcase her
-                        interior design work created with AutoCAD&trade; gradually grew into something more ambitious.
-                        After receiving praise from her school for the designs she presented, Richi began to imagine
-                        Creawa as more than a portfolio. She envisioned it as a place where others could learn, explore
-                        interior design, and develop themselves through the web.
-                    </p>
-                    
-                    <p>
-                        From that simple beginning, Creawa slowly evolved from a platform for showcasing creative work
-                        into an idea built around creativity, learning, and self-development. What started with
-                        interior design became the foundation for a broader journey, shaping the identity and purpose
-                        that Creawa &amp; Co. would continue to develop over time.
-                    </p>
-        
-                    <blockquote class="hero-editorial-quote">
-                        <p>&ldquo;My photography and my life, are one and the same, I see it as an endless stream of
-                            moments with no beginning and no end.&rdquo;</p>
-                    </blockquote>
-                </div>
-            </div>
-        
-            <div class="hero-editorial-duo">
-                <figure>
-                    <img src="/assets/images/showcases/audrey.jpg" alt="Woman in red skirt and heels crossing a street">
-                </figure>
-                <figure>
-                    <img src="/assets/images/showcases/monique.jpg" alt="Rain-drenched window with colourful smeared light">
-                </figure>
-            </div>
-        
-            <div class="hero-editorial-caption-row">
-                <dl class="hero-editorial-credits">
-                    <div><dt>Web-site</dt><dd>Creawaandco.com</dd></div>
-                </dl>
-        
-                <p class="hero-editorial-caption-text">
-                    Creawa &amp; Co. also provides private courses in Interior Design, Fashion and Muse, and UI/UX
-    Design. Each course is designed to encourage creative thinking, develop practical skills,
-    and help individuals explore their own approach to design. Through these programs, Creawa
-    continues to connect creativity with learning and self-development.
-                </p>
-            </div>
-        </section>
-        
-        <section>
-            <h1 class="center section-title">Why choose us?</h1>
-            <div class="card-container">
-                <div class="ui-card">
-                    <div class="card-number">01</div>
-                    <div class="card-image">
-                    </div>
-                    <div class="card-content">
-                        <h2>Expertise</h2>
-                        <p>Our team of experienced designers has a deep understanding of editorial design principles and best practices, ensuring that your publication is visually appealing and effective.</p>
-                    </div>
-                </div>
-                <div class="ui-card">
-                    <div class="card-number">02</div>
-                    <div class="card-image">
-                    </div>
-                    <div class="card-content">
-                        <h2>Customization</h2>
-                        <p>We work closely with you to understand your publication's unique identity and tailor our design solutions to meet your specific needs, ensuring that your publication stands out from the competition.</p>
-                    </div>
-                </div>
-                <div class="ui-card">
-                    <div class="card-number">03</div>
-                    <div class="card-image">
-                    </div>
-                    <div class="card-content">
-                        <h2>Collaboration</h2>
-                        <p>We believe that collaboration is key to creating successful editorial designs. We work closely with you throughout the design process, providing regular updates and seeking your feedback to ensure that the final product meets your expectations.</p>
-                    </div>
-            </div>
-        </section>
+        </div>
     </main>
     <footer></footer>
 </body>
