@@ -72,29 +72,57 @@ document.addEventListener('DOMContentLoaded', () => {
     const personPanel =  document.querySelector('.ui-person-panel');
     const personPanelContent = personPanel.querySelector('.ui-person-panel__content');
     const closePanelBtn =  document.querySelector('.ui-person-panel .close-btn');
+    const gsap = window.gsap;
+    let panelAnimation;
 
     function openPanel() {
+        panelAnimation?.kill();
         lenis.stop();
         document.documentElement.classList.add('noscroll');
         personPanel.classList.remove('hidden');
-    }
-    
-    let animation = 'fadeOut';
-    
-    function closePanel() {
-        // reset the previous animation
-        personPanel.style.animation = '';
 
-        requestAnimationFrame(() => {
-            personPanel.style.animation = `${animation} .5s cubic-bezier(0.4, 0, 0.2, 1)`;
-            personPanel.addEventListener('animationend', () => {
-                personPanel.style.animation = '';
-                personPanelContent.scrollTop = 0;
+        const panelImage = personPanel.querySelector('.ui-person-panel__avatar img');
+        const panelRevealTargets = [
+            personPanel.querySelector('.ui-person-panel__content-header'),
+            personPanel.querySelector('.ui-person-panel__biography')
+        ];
+        gsap.set([personPanel, ...panelRevealTargets, panelImage], {clearProps: 'all'});
+        panelAnimation = gsap.timeline({
+            onComplete: () => gsap.set([personPanel, ...panelRevealTargets, panelImage], {clearProps: 'opacity,transform,visibility'})
+        });
+        panelAnimation.fromTo(personPanel,
+            {autoAlpha: 0, y: 28},
+            {autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out'}
+        );
+        panelAnimation.fromTo(panelRevealTargets,
+            {autoAlpha: 0, y: 32},
+            {autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out'},
+            '-=0.35'
+        );
+        panelAnimation.fromTo(panelImage,
+            {scale: 1.12},
+            {scale: 1, duration: 1.2, ease: 'power2.out'},
+            '<'
+        );
+    }
+
+    function closePanel() {
+        panelAnimation?.kill();
+        panelAnimation = gsap.timeline({
+            onComplete: () => {
                 personPanel.classList.add('hidden');
+                gsap.set([personPanel, personPanelContent, personPanel.querySelector('.ui-person-panel__avatar img')], {clearProps: 'all'});
+                personPanelContent.scrollTop = 0;
                 lenis.start();
                 document.documentElement.classList.remove('noscroll');
-            }, {once: true});
-        })
+            }
+        });
+        panelAnimation.to(personPanel, {
+            autoAlpha: 0,
+            y: -12,
+            duration: 0.38,
+            ease: 'power2.in'
+        });
     }
 
     peopleCards.forEach(people => {
